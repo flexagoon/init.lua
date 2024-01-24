@@ -6,5 +6,8 @@ return {
   {
     "numToStr/Comment.nvim",
     config = true
-  }
+  },
+
+  -- Track my activity with ActivityWatch
+  "ActivityWatch/aw-watcher-vim"
 }
