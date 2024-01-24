@@ -20,5 +20,15 @@ return {
         { "<leader>,", tb.find_files },
       }
     end
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    lazy = false,
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    main = "project_nvim",
+    config = true,
+    keys = {
+      { "<leader>p", "<cmd>Telescope projects<CR>" }
+    }
   }
 }
