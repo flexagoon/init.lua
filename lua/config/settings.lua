@@ -8,5 +8,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Always enable the sign column
 vim.opt.signcolumn = "yes"
 
--- Disable highlighting of all search matches
+-- Better searching
 vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
