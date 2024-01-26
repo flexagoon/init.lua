@@ -17,7 +17,15 @@ return {
     keys = function()
       local tb = require("telescope.builtin")
       return {
-        { "<leader>,", tb.find_files },
+        {
+          "<leader>,",
+          function()
+            tb.find_files({
+              hidden = true,
+              file_ignore_patterns = { ".git/" }
+            })
+          end
+        },
       }
     end
   },
