@@ -10,3 +10,6 @@ vim.keymap.set("n", "<leader>Q", "ZQ")
 
 -- Switch to alternative buffer
 vim.keymap.set("n", "<leader>`", "<cmd>b#<CR>")
+
+-- Delete files
+vim.keymap.set("n", "<leader>fd", "<cmd>!rm %<CR>")
