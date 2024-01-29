@@ -7,12 +7,31 @@ return {
     },
     opts = function()
       local actions = require("telescope.actions")
+      local state = require("telescope.actions.state")
+      local Path = require("plenary.path")
+
+      local create_buffer = function(prompt_bufnr)
+        local prompt = state.get_current_line()
+        local prompt_path = Path:new(prompt)
+        actions.close(prompt_bufnr)
+        vim.cmd.edit(prompt_path:absolute())
+      end
+
       return {
         defaults = {
           mappings = {
             i = {
               ["<esc>"] = actions.close,
               ["<Tab>"] = actions.select_default,
+            },
+          },
+        },
+        pickers = {
+          find_files = {
+            mappings = {
+              i = {
+                ["<S-CR>"] = create_buffer,
+              },
             },
           },
         },
