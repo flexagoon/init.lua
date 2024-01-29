@@ -12,6 +12,7 @@ return {
           mappings = {
             i = {
               ["<esc>"] = actions.close,
+              ["<Tab>"] = actions.select_default,
             },
           },
         },
