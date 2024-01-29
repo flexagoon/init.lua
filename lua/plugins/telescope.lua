@@ -28,6 +28,8 @@ return {
         },
         pickers = {
           find_files = {
+            hidden = true,
+            file_ignore_patterns = { ".git/" },
             mappings = {
               i = {
                 ["<S-CR>"] = create_buffer,
@@ -40,15 +42,7 @@ return {
     keys = function()
       local tb = require("telescope.builtin")
       return {
-        {
-          "<leader>,",
-          function()
-            tb.find_files({
-              hidden = true,
-              file_ignore_patterns = { ".git/" }
-            })
-          end
-        },
+        { "<leader>,", tb.find_files },
       }
     end
   },
