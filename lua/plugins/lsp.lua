@@ -4,6 +4,8 @@ local function setup_lsp_zero()
   lsp_zero.on_attach(function(_, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
     lsp_zero.buffer_autoformat()
+
+    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
   end)
 
   require("mason-lspconfig").setup({
