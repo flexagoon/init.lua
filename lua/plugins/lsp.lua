@@ -13,6 +13,8 @@ local function setup_lsp_zero()
       lsp_zero.default_setup
     }
   })
+
+  vim.filetype.add({ extension = { templ = "templ" } })
 end
 
 local function configure_cmp()
