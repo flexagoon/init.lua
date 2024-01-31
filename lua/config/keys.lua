@@ -13,3 +13,8 @@ vim.keymap.set("n", "<leader>`", "<cmd>b#<CR>")
 
 -- Delete files
 vim.keymap.set("n", "<leader>fd", "<cmd>!rm %<CR>")
+
+-- Easier window switching
+vim.keymap.set("n", ",", "<C-w>")
+vim.keymap.set("n", ",s", "<C-w>v")
+vim.keymap.set("n", ",S", "<C-w>s")
