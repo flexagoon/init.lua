@@ -12,3 +12,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Preserve undo history
+vim.opt.undofile = true
