@@ -15,3 +15,6 @@ vim.opt.smartcase = true
 
 -- Preserve undo history
 vim.opt.undofile = true
+
+-- Set a soft 80 character line limit
+vim.opt.colorcolumn = "80"
