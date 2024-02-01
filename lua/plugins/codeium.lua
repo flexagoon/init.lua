@@ -9,5 +9,8 @@ return {
       end,
       { expr = true, silent = true }
     )
+
+    -- Keep built-in C-o functionality
+    vim.keymap.set("i", "<C-e>", "<C-o>", { noremap = true })
   end,
 }
