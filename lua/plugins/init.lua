@@ -9,5 +9,7 @@ return {
   },
 
   -- Track my activity with ActivityWatch
-  "ActivityWatch/aw-watcher-vim"
+  "ActivityWatch/aw-watcher-vim",
+
+  "stevearc/dressing.nvim"
 }
