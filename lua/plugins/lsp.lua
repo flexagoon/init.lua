@@ -5,7 +5,7 @@ local function setup_lsp_zero()
     lsp_zero.default_keymaps({ buffer = bufnr })
     lsp_zero.buffer_autoformat()
 
-    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
     vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
   end)
 
