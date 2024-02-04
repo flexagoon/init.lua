@@ -43,6 +43,8 @@ return {
       local tb = require("telescope.builtin")
       return {
         { "<leader>,", tb.find_files },
+        { "<leader>/", tb.current_buffer_fuzzy_find },
+        { "<leader>?", tb.live_grep },
       }
     end
   },
