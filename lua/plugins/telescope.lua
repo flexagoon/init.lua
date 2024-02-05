@@ -47,6 +47,16 @@ return {
             },
           },
         },
+        extensions = {
+          file_browser = {
+            mappings = {
+              i = {
+                ["<Tab>"] = actions.select_default,
+                ["<CR>"] = actions.select_default,
+              },
+            }
+          }
+        }
       }
     end,
     keys = function()
