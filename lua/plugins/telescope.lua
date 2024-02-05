@@ -66,12 +66,12 @@ return {
         { "<leader>/", tb.current_buffer_fuzzy_find },
         { "<leader>?", tb.live_grep },
       }
-    end
+    end,
+    cmd = "Telescope"
   },
   {
     "ahmedkhalf/project.nvim",
     lazy = false,
-    dependencies = { "nvim-telescope/telescope.nvim" },
     main = "project_nvim",
     config = true,
     keys = {
