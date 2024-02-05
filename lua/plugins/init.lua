@@ -11,5 +11,12 @@ return {
   -- Track my activity with ActivityWatch
   "ActivityWatch/aw-watcher-vim",
 
-  "stevearc/dressing.nvim"
+  "stevearc/dressing.nvim",
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
