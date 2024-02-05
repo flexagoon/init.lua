@@ -1,3 +1,23 @@
+local function pylsp_config()
+  require("lspconfig").pylsp.setup({
+    settings = {
+      pylsp = {
+        plugins = {
+          pylsp_mypy = {
+            enabled = true,
+            strict = true,
+            overrides = {
+              "--python-executable", "python",
+              "--disable-error-code", "name-defined",
+              true,
+            }
+          }
+        }
+      }
+    }
+  })
+end
+
 local function setup_lsp_zero()
   local lsp_zero = require("lsp-zero")
 
@@ -11,7 +31,8 @@ local function setup_lsp_zero()
 
   require("mason-lspconfig").setup({
     handlers = {
-      lsp_zero.default_setup
+      lsp_zero.default_setup,
+      pylsp = pylsp_config,
     }
   })
 
