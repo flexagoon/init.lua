@@ -85,7 +85,7 @@ return {
       "nvim-lua/plenary.nvim"
     },
     keys = {
-      { "<leader>.", "<cmd>Telescope file_browser<CR>" }
+      { "<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>" }
     }
   }
 }
