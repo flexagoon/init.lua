@@ -6,7 +6,6 @@ return {
   {
     "numToStr/Comment.nvim",
     config = true,
-    keys = { "gcc", "gbc", "gc", "gb", "gcO", "gco", "gcA" },
   },
 
   -- Track my activity with ActivityWatch
