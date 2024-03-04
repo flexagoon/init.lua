@@ -53,6 +53,7 @@ return {
               i = {
                 ["<Tab>"] = actions.select_default,
                 ["<CR>"] = actions.select_default,
+                ["<C-n>"] = actions.toggle_selection,
               },
             }
           }
