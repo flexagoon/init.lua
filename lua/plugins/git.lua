@@ -22,6 +22,7 @@ return {
       { "<leader>gg", "<cmd>Neogit<CR>" },
       { "<leader>gc", "<cmd>Neogit commit<CR>" },
       { "<leader>gp", "<cmd>Neogit push<CR>" },
+      { "<leader>gl", "<cmd>Neogit log<CR>" },
     }
   },
   {
