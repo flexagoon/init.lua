@@ -11,6 +11,9 @@ local function pylsp_config()
               "--disable-error-code", "name-defined",
               true,
             }
+          },
+          black = {
+            enabled = true
           }
         }
       }
