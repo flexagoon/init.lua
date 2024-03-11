@@ -92,4 +92,12 @@ return {
     },
     config = setup_lsp_zero
   },
+  {
+    "folke/trouble.nvim",
+    config = true,
+    cmd = { "Trouble", "TroubleToggle", "TroubleRefresh", "TroubleClose" },
+    keys = {
+      { "<leader>ce", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
+    }
+  }
 }
