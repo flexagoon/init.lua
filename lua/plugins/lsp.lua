@@ -45,18 +45,21 @@ end
 
 local function configure_cmp()
   local cmp = require("cmp")
-  local cmp_action = require("lsp-zero").cmp_action()
+  local cmp_action = require('lsp-zero').cmp_action()
 
   cmp.setup({
     preselect = "item",
     completion = {
       completeopt = "menu,menuone,noinsert"
     },
+    sources = {
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+    },
     mapping = cmp.mapping.preset.insert({
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      ["<Tab>"] = cmp_action.luasnip_supertab(),
-      ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
-    })
+      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+    }),
   })
 end
 
@@ -70,7 +73,10 @@ return {
       -- Completion
       {
         "hrsh7th/nvim-cmp",
-        dependencies = { "hrsh7th/cmp-nvim-lsp" },
+        dependencies = {
+          "hrsh7th/cmp-nvim-lsp",
+          "saadparwaiz1/cmp_luasnip",
+        },
         config = configure_cmp
       },
 
@@ -88,7 +94,12 @@ return {
       },
 
       -- Snippets
-      "L3MON4D3/LuaSnip",
+      {
+        "L3MON4D3/LuaSnip",
+        config = function()
+          require("luasnip.loaders.from_snipmate").lazy_load()
+        end
+      },
 
       -- Autoformat
       {
