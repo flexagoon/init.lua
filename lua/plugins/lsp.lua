@@ -26,7 +26,6 @@ local function setup_lsp_zero()
 
   lsp_zero.on_attach(function(_, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
-    lsp_zero.buffer_autoformat()
 
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
@@ -89,7 +88,19 @@ return {
       },
 
       -- Snippets
-      "L3MON4D3/LuaSnip"
+      "L3MON4D3/LuaSnip",
+
+      -- Autoformat
+      {
+        'stevearc/conform.nvim',
+        opts = {
+          notify_on_error = false,
+          format_on_save = {
+            timeout_ms = 500,
+            lsp_fallback = true,
+          },
+        },
+      },
     },
     config = setup_lsp_zero
   },
