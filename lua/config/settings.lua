@@ -22,3 +22,6 @@ vim.opt.colorcolumn = "80"
 -- Open new splits below and right instead of above and left
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Keep some space above and below the cursor
+vim.opt.scrolloff = 10
