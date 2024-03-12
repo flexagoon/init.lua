@@ -21,21 +21,27 @@ local function pylsp_config()
   })
 end
 
-local function setup_lsp_zero()
-  local lsp_zero = require("lsp-zero")
+local function setup_lsp()
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+      local opts = { buffer = ev.buf }
 
-  lsp_zero.on_attach(function(_, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr })
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+      vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+      vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
+      vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+    end
+  })
 
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
-    vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
-    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
-  end)
+  local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   require("mason-lspconfig").setup({
     handlers = {
-      lsp_zero.default_setup,
+      function(server)
+        require("lspconfig")[server].setup({
+          capabilities = lsp_capabilities,
+        })
+      end,
       pylsp = pylsp_config,
     }
   })
@@ -43,55 +49,55 @@ local function setup_lsp_zero()
   vim.filetype.add({ extension = { templ = "templ" } })
 end
 
-local function configure_cmp()
+local function setup_cmp()
   local cmp = require("cmp")
-  local cmp_action = require('lsp-zero').cmp_action()
+  local luasnip = require("luasnip")
 
   cmp.setup({
-    preselect = "item",
-    completion = {
-      completeopt = "menu,menuone,noinsert"
-    },
     sources = {
       { name = "nvim_lsp" },
-      { name = "luasnip" },
+      { name = "luasnip" }
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+      ['<C-f>'] = cmp.mapping(function()
+        if luasnip.expand_or_locally_jumpable() then
+          luasnip.expand_or_jump()
+        end
+      end, { 'i', 's' }),
+      ['<C-b>'] = cmp.mapping(function()
+        if luasnip.locally_jumpable(-1) then
+          luasnip.jump(-1)
+        end
+      end, { 'i', 's' }),
     }),
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end
+    }
   })
 end
 
 return {
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
+    "neovim/nvim-lspconfig",
     dependencies = {
-      "neovim/nvim-lspconfig",
-
-      -- Completion
-      {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-          "hrsh7th/cmp-nvim-lsp",
-          "saadparwaiz1/cmp_luasnip",
-        },
-        config = configure_cmp
-      },
-
       -- Automatic server installation
       {
         "williamboman/mason.nvim",
         config = true
       },
       "williamboman/mason-lspconfig.nvim",
+    },
+    config = setup_lsp
+  },
 
-      -- Enhanced editing of vim configs
-      {
-        "folke/neodev.nvim",
-        config = true
-      },
+  -- Completion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
 
       -- Snippets
       {
@@ -100,21 +106,31 @@ return {
           require("luasnip.loaders.from_snipmate").lazy_load()
         end
       },
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = setup_cmp
+  },
 
-      -- Autoformat
-      {
-        'stevearc/conform.nvim',
-        opts = {
-          notify_on_error = false,
-          format_on_save = {
-            timeout_ms = 500,
-            lsp_fallback = true,
-          },
-        },
+  -- Enhanced editing of vim configs
+  {
+    "folke/neodev.nvim",
+    config = true,
+    ft = "lua",
+  },
+
+  -- Autoformat
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
       },
     },
-    config = setup_lsp_zero
   },
+
+  -- Diagnostics
   {
     "folke/trouble.nvim",
     config = true,

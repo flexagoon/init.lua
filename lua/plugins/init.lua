@@ -21,4 +21,7 @@ return {
   },
 
   { "folke/todo-comments.nvim", config = true },
+
+  -- AI code completions
+  "Exafunction/codeium.vim",
 }
