@@ -21,6 +21,12 @@ return {
         enabled = true,
       },
     },
+    on_open = function()
+      vim.keymap.set("n", "<leader>r", "gqip")
+    end,
+    on_close = function()
+      vim.keymap.del("n", "<leader>r")
+    end,
   },
   cmd = "ZenMode",
   keys = {
