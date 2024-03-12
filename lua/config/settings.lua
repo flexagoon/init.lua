@@ -18,3 +18,7 @@ vim.opt.undofile = true
 
 -- Set a soft 80 character line limit
 vim.opt.colorcolumn = "80"
+
+-- Open new splits below and right instead of above and left
+vim.opt.splitbelow = true
+vim.opt.splitright = true
