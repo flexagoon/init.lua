@@ -66,6 +66,7 @@ return {
         { "<leader>,", tb.find_files },
         { "<leader>/", tb.current_buffer_fuzzy_find },
         { "<leader>?", tb.live_grep },
+        { "<leader>h", tb.help_tags },
       }
     end,
     cmd = "Telescope"
