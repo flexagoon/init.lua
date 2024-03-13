@@ -72,15 +72,6 @@ return {
     cmd = "Telescope"
   },
   {
-    "ahmedkhalf/project.nvim",
-    lazy = false,
-    main = "project_nvim",
-    config = true,
-    keys = {
-      { "<leader>p", "<cmd>Telescope projects<CR>" }
-    }
-  },
-  {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
