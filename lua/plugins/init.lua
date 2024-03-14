@@ -11,8 +11,10 @@ return {
   -- Track my activity with ActivityWatch
   "ActivityWatch/aw-watcher-vim",
 
+  -- Better UI for LSP Actions
   "stevearc/dressing.nvim",
 
+  -- Preview markdown files
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -23,6 +25,7 @@ return {
   -- AI code completions
   "Exafunction/codeium.vim",
 
+  -- Navigate the filesystem
   {
     'stevearc/oil.nvim',
     config = true,
