@@ -88,6 +88,13 @@ return {
         config = true
       },
       "williamboman/mason-lspconfig.nvim",
+
+      -- Enhanced editing of vim configs
+      {
+        "folke/neodev.nvim",
+        config = true,
+        ft = "lua",
+      },
     },
     config = setup_lsp
   },
@@ -109,13 +116,6 @@ return {
       "saadparwaiz1/cmp_luasnip",
     },
     config = setup_cmp
-  },
-
-  -- Enhanced editing of vim configs
-  {
-    "folke/neodev.nvim",
-    config = true,
-    ft = "lua",
   },
 
   -- Autoformat
