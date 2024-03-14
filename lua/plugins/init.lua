@@ -24,4 +24,12 @@ return {
 
   -- AI code completions
   "Exafunction/codeium.vim",
+  {
+    'stevearc/oil.nvim',
+    config = true,
+    keys = {
+      { '<leader>.', '<cmd>Oil --float .<cr>' }
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 }

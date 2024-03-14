@@ -47,17 +47,6 @@ return {
             },
           },
         },
-        extensions = {
-          file_browser = {
-            mappings = {
-              i = {
-                ["<Tab>"] = actions.select_default,
-                ["<CR>"] = actions.select_default,
-                ["<C-n>"] = actions.toggle_selection,
-              },
-            }
-          }
-        }
       }
     end,
     keys = function()
@@ -71,14 +60,4 @@ return {
     end,
     cmd = "Telescope"
   },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim"
-    },
-    keys = {
-      { "<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>" }
-    }
-  }
 }
