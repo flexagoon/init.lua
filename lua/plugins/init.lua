@@ -28,7 +28,7 @@ return {
     'stevearc/oil.nvim',
     config = true,
     keys = {
-      { '<leader>.', '<cmd>Oil --float .<cr>' }
+      { '<leader>.', '<cmd>Oil --float<cr>' }
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
   }
