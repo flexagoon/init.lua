@@ -20,8 +20,6 @@ return {
     build = function() vim.fn["mkdp#util#install"]() end,
   },
 
-  { "folke/todo-comments.nvim", config = true },
-
   -- AI code completions
   "Exafunction/codeium.vim",
 
