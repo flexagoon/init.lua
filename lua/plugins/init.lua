@@ -24,6 +24,7 @@ return {
 
   -- AI code completions
   "Exafunction/codeium.vim",
+
   {
     'stevearc/oil.nvim',
     config = true,
