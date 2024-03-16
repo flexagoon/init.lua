@@ -59,6 +59,7 @@ local function setup_cmp()
       { name = "luasnip" }
     },
     mapping = cmp.mapping.preset.insert({
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       ['<C-f>'] = cmp.mapping(function()
         if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
