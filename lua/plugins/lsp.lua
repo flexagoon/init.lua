@@ -56,7 +56,8 @@ local function setup_cmp()
   cmp.setup({
     sources = {
       { name = "nvim_lsp" },
-      { name = "luasnip" }
+      { name = "luasnip" },
+      { name = "emoji" },
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-y>'] = cmp.mapping.confirm({ select = true }),
@@ -115,6 +116,9 @@ return {
         end
       },
       "saadparwaiz1/cmp_luasnip",
+
+      -- Emojis
+      "hrsh7th/cmp-emoji",
     },
     config = setup_cmp
   },
