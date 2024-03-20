@@ -56,6 +56,7 @@ return {
         { "<leader>/", tb.current_buffer_fuzzy_find },
         { "<leader>?", tb.live_grep },
         { "<leader>h", tb.help_tags },
+        { "gd",        tb.lsp_definitions },
       }
     end,
     cmd = "Telescope"
