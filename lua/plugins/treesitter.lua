@@ -16,18 +16,6 @@ return {
         highlight = {
           enable = true
         },
-
-        textobjects = {
-          select = {
-            enable = true,
-            disable = { "dart" },
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-            }
-          }
-        }
       })
     end
   },
