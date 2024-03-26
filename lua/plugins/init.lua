@@ -39,6 +39,7 @@ return {
     "echasnovski/mini.nvim",
     version = false,
     config = function()
+      require("mini.surround").setup()
       require("mini.ai").setup({
         custom_textobjects = {
           f = require("mini.ai").gen_spec.treesitter({
