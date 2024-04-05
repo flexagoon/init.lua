@@ -6,10 +6,14 @@ return {
   } },
   ft = "norg",
   cmd = "Neorg",
-  opts = {
-    load = {
-      ["core.defaults"] = {},
-      ["core.concealer"] = {},
-    },
-  },
+  config = function()
+    vim.opt.conceallevel = 2
+
+    require("neorg").setup({
+      load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {},
+      },
+    })
+  end
 }
