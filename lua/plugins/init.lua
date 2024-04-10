@@ -27,21 +27,5 @@ return {
       { '<leader>.', '<cmd>Oil --float<cr>' }
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
-  {
-    "echasnovski/mini.nvim",
-    version = false,
-    config = function()
-      require("mini.surround").setup()
-      require("mini.ai").setup({
-        custom_textobjects = {
-          f = require("mini.ai").gen_spec.treesitter({
-            a = "@function.outer",
-            i = "@function.inner",
-          }),
-        }
-      })
-    end
   }
 }
