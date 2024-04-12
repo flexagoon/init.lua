@@ -18,4 +18,21 @@ return {
 
   -- AI code completions
   "Exafunction/codeium.vim",
+
+  -- Required by some plugins to manage their dependencies
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+
+  -- Make HTTP requests from Neovim
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end,
+  },
 }

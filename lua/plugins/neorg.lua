@@ -1,9 +1,6 @@
 return {
   "nvim-neorg/neorg",
-  dependencies = { {
-    "vhyrro/luarocks.nvim",
-    config = true,
-  } },
+  dependencies = { "vhyrro/luarocks.nvim" },
   ft = "norg",
   cmd = "Neorg",
   config = function()
