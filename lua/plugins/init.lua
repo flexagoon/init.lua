@@ -18,14 +18,4 @@ return {
 
   -- AI code completions
   "Exafunction/codeium.vim",
-
-  -- Navigate the filesystem
-  {
-    'stevearc/oil.nvim',
-    config = true,
-    keys = {
-      { '<leader>.', '<cmd>Oil --float<cr>' }
-    },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
 }
