@@ -23,7 +23,7 @@ return {
       { "<leader>gc", "<cmd>Neogit commit<CR>" },
       { "<leader>gp", "<cmd>Neogit push<CR>" },
       { "<leader>gl", "<cmd>Neogit log<CR>" },
-    }
+    },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -39,7 +39,7 @@ return {
         vim.keymap.set("v", "<leader>gs", function()
           gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
         end)
-      end
-    }
+      end,
+    },
   },
 }

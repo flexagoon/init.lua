@@ -14,9 +14,9 @@ return {
         ensure_installed = { "comment" },
 
         highlight = {
-          enable = true
+          enable = true,
         },
       })
-    end
+    end,
   },
 }

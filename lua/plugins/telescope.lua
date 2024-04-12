@@ -6,8 +6,8 @@ return {
       "nvim-tree/nvim-web-devicons",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
-      }
+        build = "make",
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")
@@ -58,6 +58,6 @@ return {
         { "gd",        tb.lsp_definitions },
       }
     end,
-    cmd = "Telescope"
+    cmd = "Telescope",
   },
 }

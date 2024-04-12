@@ -15,5 +15,5 @@ return {
         ["core.concealer"] = {},
       },
     })
-  end
+  end,
 }

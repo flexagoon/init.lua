@@ -10,14 +10,14 @@ local function pylsp_config()
               "--python-executable", "python",
               "--disable-error-code", "name-defined",
               true,
-            }
+            },
           },
           black = {
-            enabled = true
-          }
-        }
-      }
-    }
+            enabled = true,
+          },
+        },
+      },
+    },
   })
 end
 
@@ -30,7 +30,7 @@ local function setup_lsp()
       vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
       vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
       vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-    end
+    end,
   })
 
   local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -43,7 +43,7 @@ local function setup_lsp()
         })
       end,
       pylsp = pylsp_config,
-    }
+    },
   })
 
   vim.filetype.add({ extension = { templ = "templ" } })
@@ -60,23 +60,23 @@ local function setup_cmp()
       { name = "emoji" },
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-      ['<C-f>'] = cmp.mapping(function()
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-f>"] = cmp.mapping(function()
         if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
         end
-      end, { 'i', 's' }),
-      ['<C-b>'] = cmp.mapping(function()
+      end, { "i", "s" }),
+      ["<C-b>"] = cmp.mapping(function()
         if luasnip.locally_jumpable(-1) then
           luasnip.jump(-1)
         end
-      end, { 'i', 's' }),
+      end, { "i", "s" }),
     }),
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
-      end
-    }
+      end,
+    },
   })
 end
 
@@ -87,7 +87,7 @@ return {
       -- Automatic server installation
       {
         "williamboman/mason.nvim",
-        config = true
+        config = true,
       },
       "williamboman/mason-lspconfig.nvim",
 
@@ -98,7 +98,7 @@ return {
         ft = "lua",
       },
     },
-    config = setup_lsp
+    config = setup_lsp,
   },
 
   -- Completion
@@ -113,19 +113,19 @@ return {
         "L3MON4D3/LuaSnip",
         config = function()
           require("luasnip.loaders.from_snipmate").lazy_load()
-        end
+        end,
       },
       "saadparwaiz1/cmp_luasnip",
 
       -- Emojis
       "hrsh7th/cmp-emoji",
     },
-    config = setup_cmp
+    config = setup_cmp,
   },
 
   -- Autoformat
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     opts = {
       notify_on_error = false,
       format_on_save = {
@@ -142,6 +142,6 @@ return {
     cmd = { "Trouble", "TroubleToggle", "TroubleRefresh", "TroubleClose" },
     keys = {
       { "<leader>ce", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
-    }
-  }
+    },
+  },
 }
