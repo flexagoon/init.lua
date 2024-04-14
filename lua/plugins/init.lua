@@ -1,6 +1,6 @@
 return {
   -- Automatic indentation
-  "tpope/vim-sleuth",
+  "Darazaki/indent-o-matic",
 
   -- Track my activity with ActivityWatch
   "ActivityWatch/aw-watcher-vim",
