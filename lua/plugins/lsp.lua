@@ -12,7 +12,7 @@ local function pylsp_config()
               true,
             },
           },
-          black = {
+          pylsp_ruff = {
             enabled = true,
           },
         },
