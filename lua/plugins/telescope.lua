@@ -56,6 +56,7 @@ return {
         { "<leader>?", tb.live_grep },
         { "<leader>h", tb.help_tags },
         { "gd",        tb.lsp_definitions },
+        { "gr",        tb.lsp_references },
       }
     end,
     cmd = "Telescope",
