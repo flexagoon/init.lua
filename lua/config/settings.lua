@@ -22,3 +22,6 @@ vim.opt.splitright = true
 
 -- Keep some space above and below the cursor
 vim.opt.scrolloff = 10
+
+-- Display tabs as 4 spaces
+vim.opt.tabstop = 4
