@@ -12,9 +12,14 @@ vim.keymap.set("n", "<leader>Q", "ZQ")
 vim.keymap.set("n", "<leader>`", "<cmd>b#<CR>")
 
 -- Delete files
-vim.keymap.set("n", "<leader>fd", "<cmd>!rm %<CR>")
+vim.keymap.set("n", "<leader>fd", "<cmd>!rm '%'<CR>")
 
 -- Easier window switching
 vim.keymap.set("n", ",", "<C-w>")
 vim.keymap.set("n", ",s", "<C-w>v")
 vim.keymap.set("n", ",S", "<C-w>s")
+
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
+vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P')
