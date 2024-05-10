@@ -5,9 +5,6 @@ return {
   -- Track my activity with ActivityWatch
   "ActivityWatch/aw-watcher-vim",
 
-  -- Better UI for LSP Actions
-  "stevearc/dressing.nvim",
-
   -- Preview markdown files
   {
     "iamcco/markdown-preview.nvim",

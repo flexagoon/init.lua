@@ -151,5 +151,12 @@ return {
     keys = {
       { "<leader>ce", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
     },
+    event = "LspAttach",
+  },
+
+  --- Better UI for LSP actions
+  {
+    "stevearc/dressing.nvim",
+    event = "LspAttach",
   },
 }
