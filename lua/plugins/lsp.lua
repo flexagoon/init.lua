@@ -86,6 +86,8 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPost", "BufNewFile" },
+    command = { "LspInfo", "LspInstall", "LspUninstall" },
     dependencies = {
       -- Automatic server installation
       {
