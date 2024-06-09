@@ -1,0 +1,106 @@
+[plugins]
+
+# Plugin manager
+"rocks.nvim" = "2.30.0"
+"rocks-config.nvim" = "1.6.0"
+"rocks-treesitter.nvim" = "scm"
+"rocks-git.nvim" = "1.5.1"
+
+# Colorscheme
+"kanagawa.nvim" = "scm"
+
+# Find all the things
+"telescope.nvim" = "scm"
+
+# Generate docstrings
+neogen = "2.17.1"
+
+# Various utility mini-plugins
+"mini.nvim" = "scm"
+
+# The best git UI
+neogit = "1.0.0"
+
+# Note taking in neovim
+neorg = "8.6.0"
+
+# LSP
+
+## Language server management
+nvim-lspconfig = "0.1.8"
+"mason.nvim" = "1.10.0"
+"mason-lspconfig.nvim" = "1.29.0"
+
+## Snippets
+luasnip = "2.3.0"
+cmp_luasnip = "scm"
+
+## Formatting
+"conform.nvim" = "5.8.0"
+
+## Better UI for LSP actions
+"dressing.nvim" = "2.2.1"
+
+# Treesitter parsers
+tree-sitter-toml = "scm"
+tree-sitter-query = "scm"
+tree-sitter-go = "scm"
+tree-sitter-markdown = "scm"
+tree-sitter-lua = "scm"
+tree-sitter-vimdoc = "scm"
+tree-sitter-comment = "scm"
+
+# Autocompletion
+[plugins.nvim-cmp]
+git = "hrsh7th/nvim-cmp"
+[plugins.cmp-nvim-lsp]
+git = "hrsh7th/cmp-nvim-lsp"
+
+# Automatic indentation
+[plugins.indent-o-matic]
+git = "Darazaki/indent-o-matic"
+
+# Track my activity with ActivityWatch
+[plugins.aw-watcher-vim]
+git = "ActivityWatch/aw-watcher-vim"
+
+# AI code completions
+[plugins.supermaven-nvim]
+git = "supermaven-inc/supermaven-nvim"
+config = {}
+
+# Edit my dotfiles which are managed by chezmoi
+[plugins."chezmoi.vim"]
+git = "alker0/chezmoi.vim"
+
+# Show git status in the sign column
+[plugins."gitsigns.nvim"]
+git = "lewis6991/gitsigns.nvim"
+
+# Temporarily reqired by neorg
+[plugins.nvim-treesitter]
+git = "nvim-treesitter/nvim-treesitter"
+
+[treesitter]
+auto_install = true
+
+[config]
+colorscheme = "kanagawa"
+
+[bundles]
+
+git.items = [
+  "neogit",
+  "gitsigns.nvim",
+]
+
+lsp.items = [
+  "nvim-lspconfig",
+  "mason.nvim",
+  "mason-lspconfig.nvim",
+  "nvim-cmp",
+  "cmp-nvim-lsp",
+  "luasnip",
+  "cmp_luasnip",
+  "conform.nvim"
+]

@@ -25,3 +25,6 @@ vim.opt.scrolloff = 10
 
 -- Display tabs as 4 spaces
 vim.opt.tabstop = 4
+
+-- Hide markup syntax
+vim.opt.conceallevel = 2
