@@ -1,8 +1,8 @@
 [plugins]
 
 # Plugin manager
-"rocks.nvim" = "2.30.0"
-"rocks-config.nvim" = "1.6.0"
+"rocks.nvim" = "2.31.3"
+"rocks-config.nvim" = "2.0.0"
 "rocks-treesitter.nvim" = "scm"
 "rocks-git.nvim" = "1.5.1"
 
@@ -22,7 +22,7 @@ neogen = "2.17.1"
 neogit = "1.0.0"
 
 # Note taking in neovim
-neorg = "8.6.0"
+neorg = "8.7.1"
 
 # LSP
 
@@ -36,10 +36,13 @@ luasnip = "2.3.0"
 cmp_luasnip = "scm"
 
 ## Formatting
-"conform.nvim" = "5.8.0"
+"conform.nvim" = "5.9.0"
 
 ## Better UI for LSP actions
-"dressing.nvim" = "2.2.1"
+"dressing.nvim" = "2.2.2"
+
+# Best task runner
+"overseer.nvim" = "1.4.0"
 
 # Treesitter parsers
 tree-sitter-toml = "scm"
@@ -49,6 +52,14 @@ tree-sitter-markdown = "scm"
 tree-sitter-lua = "scm"
 tree-sitter-vimdoc = "scm"
 tree-sitter-comment = "scm"
+tree-sitter-elixir = "scm"
+tree-sitter-svelte = "scm"
+tree-sitter-typescript = "scm"
+tree-sitter-javascript = "scm"
+tree-sitter-css = "scm"
+tree-sitter-just = "scm"
+tree-sitter-gomod = "scm"
+tree-sitter-markdown_inline = "scm"
 
 # Autocompletion
 [plugins.nvim-cmp]
