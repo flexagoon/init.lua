@@ -24,6 +24,16 @@ local function pylsp_config()
   })
 end
 
+local function gopls_config()
+  require("lspconfig").gopls.setup({
+    settings = {
+      gopls = {
+        staticcheck = true,
+      },
+    },
+  })
+end
+
 
 -- Set up LSP
 
@@ -49,6 +59,7 @@ require("mason-lspconfig").setup({
       })
     end,
     pylsp = pylsp_config,
+    gopls = gopls_config,
   },
 })
 
