@@ -1,8 +1,8 @@
 [plugins]
 
 # Plugin manager
-"rocks.nvim" = "2.31.3"
-"rocks-config.nvim" = "2.0.0"
+"rocks.nvim" = "2.34.0"
+"rocks-config.nvim" = "2.1.2"
 "rocks-treesitter.nvim" = "scm"
 "rocks-git.nvim" = "1.5.1"
 
@@ -22,7 +22,7 @@ neogen = "2.17.1"
 neogit = "1.0.0"
 
 # Note taking in neovim
-neorg = "8.7.1"
+neorg = "8.8.1"
 
 # LSP
 
@@ -36,7 +36,7 @@ luasnip = "2.3.0"
 cmp_luasnip = "scm"
 
 ## Formatting
-"conform.nvim" = "5.9.0"
+"conform.nvim" = "6.0.0"
 
 ## Better UI for LSP actions
 "dressing.nvim" = "2.2.2"
