@@ -60,6 +60,8 @@ tree-sitter-css = "scm"
 tree-sitter-just = "scm"
 tree-sitter-gomod = "scm"
 tree-sitter-markdown_inline = "scm"
+tree-sitter-glsl = "scm"
+
 
 # Autocompletion
 [plugins.nvim-cmp]
