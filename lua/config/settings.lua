@@ -28,3 +28,7 @@ vim.opt.tabstop = 4
 
 -- Hide markup syntax
 vim.opt.conceallevel = 2
+
+-- Disable swap files since they are basically useless
+-- and very annoying
+vim.opt.swapfile = false
