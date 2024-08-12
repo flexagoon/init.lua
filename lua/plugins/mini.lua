@@ -1,3 +1,6 @@
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
 require("mini.surround").setup()
 
 require("mini.ai").setup({
