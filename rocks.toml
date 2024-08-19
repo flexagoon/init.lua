@@ -82,7 +82,6 @@ rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 # AI code completions
 [plugins.supermaven-nvim]
 git = "supermaven-inc/supermaven-nvim"
-config = {}
 rev = "d71257f431e190d9236d7f30da4c2d659389e91f"
 
 # Edit my dotfiles which are managed by chezmoi
@@ -108,4 +107,9 @@ lsp.items = [
   "luasnip",
   "cmp_luasnip",
   "conform.nvim"
+]
+
+setup.items = [
+ "supermaven-nvim",
+ "guess-indent.nvim"
 ]
