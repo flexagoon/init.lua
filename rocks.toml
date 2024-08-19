@@ -1,7 +1,7 @@
 [plugins]
 
 # Plugin manager
-"rocks.nvim" = "2.36.1"
+"rocks.nvim" = "2.37.1"
 "rocks-config.nvim" = "2.2.0"
 "rocks-treesitter.nvim" = "1.0.3"
 "rocks-git.nvim" = "2.0.1"
@@ -13,7 +13,7 @@
 "telescope.nvim" = "scm"
 
 # Generate docstrings
-neogen = "2.19.3"
+neogen = "2.19.4"
 
 # Various utility mini-plugins
 "mini.nvim" = "scm"
@@ -29,14 +29,14 @@ neorg = "9.1.1"
 ## Language server management
 nvim-lspconfig = "0.1.8"
 "mason.nvim" = "1.10.0"
-"mason-lspconfig.nvim" = "scm"
+"mason-lspconfig.nvim" = "1.30.0"
 
 ## Snippets
 luasnip = "2.3.0"
 cmp_luasnip = "scm"
 
 ## Formatting
-"conform.nvim" = "7.0.0"
+"conform.nvim" = "7.1.0"
 
 ## Better UI for LSP actions
 "dressing.nvim" = "2.2.2"
@@ -48,31 +48,22 @@ cmp_luasnip = "scm"
 "overseer.nvim" = "1.4.0"
 
 # Autocompletion
-nvim-cmp= "scm"
+nvim-cmp = "scm"
 cmp-nvim-lsp = "scm"
 
 # Treesitter parsers
-tree-sitter-toml = "scm"
-tree-sitter-query = "scm"
-tree-sitter-go = "scm"
 tree-sitter-markdown = "0.0.2"
-tree-sitter-lua = "scm"
-tree-sitter-vimdoc = "scm"
-tree-sitter-comment = "scm"
-tree-sitter-elixir = "scm"
-tree-sitter-svelte = "scm"
 tree-sitter-typescript = "0.0.3"
 tree-sitter-javascript = "0.0.2"
-tree-sitter-css = "scm"
-tree-sitter-just = "scm"
-tree-sitter-gomod = "scm"
 tree-sitter-markdown_inline = "0.0.2"
-tree-sitter-glsl = "scm"
 tree-sitter-ecma = "0.0.2"
-tree-sitter-xml = "scm"
-tree-sitter-json = "scm"
-tree-sitter-yaml = "scm"
-tree-sitter-python = "0.0.2"
+tree-sitter-python = "0.0.3"
+nvim-treesitter-legacy-api = "0.9.2"
+tree-sitter-gitignore = "0.0.2"
+tree-sitter-fish = "0.0.2"
+tree-sitter-html = "0.0.3"
+tree-sitter-jsdoc = "0.0.2"
+tree-sitter-toml = "0.0.2"
 
 # Track my activity with ActivityWatch
 [plugins.aw-watcher-vim]
