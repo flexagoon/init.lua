@@ -48,15 +48,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 require("mason").setup()
 require("mason-lspconfig").setup({
   handlers = {
     function(server)
-      require("lspconfig")[server].setup({
-        capabilities = lsp_capabilities,
-      })
+      require("lspconfig")[server].setup({})
     end,
     pylsp = pylsp_config,
     gopls = gopls_config,
@@ -65,38 +61,26 @@ require("mason-lspconfig").setup({
 
 vim.filetype.add({ extension = { templ = "templ" } })
 
--- Set up autocompletion
+-- Set up autocomplete
 
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-
-cmp.setup({
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-f>"] = cmp.mapping(function()
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      end
-    end, { "i", "s" }),
-    ["<C-b>"] = cmp.mapping(function()
-      if luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      end
-    end, { "i", "s" }),
-  }),
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
+require("care.config").setup({
+  selection_behavior = "insert",
+  ui = {
+    ghost_text = { enabled = false },
   },
 })
 
-require("luasnip.loaders.from_snipmate").lazy_load()
-
+local care = require("care").api
+vim.keymap.set("i", "<C-n>", function()
+  if care.is_open() then
+    care.select_next()
+  else
+    care.complete()
+  end
+end)
+vim.keymap.set("i", "<C-p>", care.select_prev)
+vim.keymap.set("i", "<C-y>", care.confirm)
+vim.keymap.set("i", "<C-c>", care.close)
 
 -- Set up formatting
 require("conform").setup({

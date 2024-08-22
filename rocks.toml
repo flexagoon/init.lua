@@ -31,10 +31,6 @@ nvim-lspconfig = "0.1.8"
 "mason.nvim" = "1.10.0"
 "mason-lspconfig.nvim" = "1.30.0"
 
-## Snippets
-luasnip = "2.3.0"
-cmp_luasnip = "scm"
-
 ## Formatting
 "conform.nvim" = "7.1.0"
 
@@ -46,10 +42,6 @@ cmp_luasnip = "scm"
 
 # Best task runner
 "overseer.nvim" = "1.4.0"
-
-# Autocompletion
-nvim-cmp = "scm"
-cmp-nvim-lsp = "scm"
 
 # Treesitter parsers
 tree-sitter-markdown = "0.0.2"
@@ -80,6 +72,14 @@ rev = "d71257f431e190d9236d7f30da4c2d659389e91f"
 git = "alker0/chezmoi.vim"
 rev = "10f2692791b5e512a2c1bb4dc560b42ca5bf71fd"
 
+[plugins."care.nvim"]
+git = "max397574/care.nvim"
+rev = "main"
+
+[plugins.care-lsp]
+git = "max397574/care-lsp"
+rev = "main"
+
 [treesitter]
 auto_install = true
 auto_highlight = "all"
@@ -93,10 +93,8 @@ lsp.items = [
   "nvim-lspconfig",
   "mason.nvim",
   "mason-lspconfig.nvim",
-  "nvim-cmp",
-  "cmp-nvim-lsp",
-  "luasnip",
-  "cmp_luasnip",
+  "care.nvim",
+  "care-lsp",
   "conform.nvim"
 ]
 
