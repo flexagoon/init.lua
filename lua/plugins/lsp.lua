@@ -1,5 +1,7 @@
+local lspconfig = require("lspconfig")
+
 local function pylsp_config()
-  require("lspconfig").pylsp.setup({
+  lspconfig.pylsp.setup({
     settings = {
       pylsp = {
         plugins = {
@@ -25,7 +27,7 @@ local function pylsp_config()
 end
 
 local function gopls_config()
-  require("lspconfig").gopls.setup({
+  lspconfig.gopls.setup({
     settings = {
       gopls = {
         staticcheck = true,
@@ -52,7 +54,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   handlers = {
     function(server)
-      require("lspconfig")[server].setup({})
+      lspconfig[server].setup({})
     end,
     pylsp = pylsp_config,
     gopls = gopls_config,
