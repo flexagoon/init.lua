@@ -3,14 +3,7 @@ MiniIcons.mock_nvim_web_devicons()
 
 require("mini.surround").setup()
 
-require("mini.ai").setup({
-  custom_textobjects = {
-    f = require("mini.ai").gen_spec.treesitter({
-      a = "@function.outer",
-      i = "@function.inner",
-    }),
-  },
-})
+require("mini.ai").setup()
 
 require("mini.files").setup({
   mappings = {
