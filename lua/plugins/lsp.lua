@@ -36,6 +36,15 @@ local function gopls_config()
   })
 end
 
+local function luals_config()
+  lspconfig.lua_ls.setup({
+    settings = {
+      Lua = {
+        completion = { callSnippet = "Replace" },
+      },
+    },
+  })
+end
 
 -- Set up LSP
 
@@ -58,6 +67,7 @@ require("mason-lspconfig").setup({
     end,
     pylsp = pylsp_config,
     gopls = gopls_config,
+    lua_ls = luals_config,
   },
 })
 
