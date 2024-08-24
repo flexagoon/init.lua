@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 local rocks_config = {
   rocks_path = vim.env.HOME .. "/.local/share/nvim/rocks",
 }
