@@ -56,6 +56,11 @@ tree-sitter-fish = "0.0.2"
 tree-sitter-html = "0.0.3"
 tree-sitter-jsdoc = "0.0.2"
 tree-sitter-toml = "0.0.2"
+tree-sitter-julia = "0.0.3"
+tree-sitter-bash = "0.0.2"
+tree-sitter-go = "0.0.3"
+tree-sitter-editorconfig = "0.0.3"
+tree-sitter-json = "0.0.3"
 
 # Track my activity with ActivityWatch
 [plugins.aw-watcher-vim]
