@@ -32,3 +32,10 @@ vim.opt.conceallevel = 2
 -- Disable swap files since they are basically useless
 -- and very annoying
 vim.opt.swapfile = false
+
+-- Better line wrapping
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+
+-- Show preview for :s
+vim.opt.inccommand = "split"
