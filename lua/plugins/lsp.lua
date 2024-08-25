@@ -46,6 +46,10 @@ local function luals_config()
   })
 end
 
+-- Set up autocomplete
+
+require("config.completion")
+
 -- Set up LSP
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -72,27 +76,6 @@ require("mason-lspconfig").setup({
 })
 
 vim.filetype.add({ extension = { templ = "templ" } })
-
--- Set up autocomplete
-
-require("care.config").setup({
-  selection_behavior = "insert",
-  ui = {
-    ghost_text = { enabled = false },
-  },
-})
-
-local care = require("care").api
-vim.keymap.set("i", "<C-n>", function()
-  if care.is_open() then
-    care.select_next()
-  else
-    care.complete()
-  end
-end)
-vim.keymap.set("i", "<C-p>", care.select_prev)
-vim.keymap.set("i", "<C-y>", care.confirm)
-vim.keymap.set("i", "<C-c>", care.close)
 
 -- Set up formatting
 require("conform").setup({

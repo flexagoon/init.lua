@@ -38,7 +38,10 @@ nvim-lspconfig = "0.1.8"
 "dressing.nvim" = "2.2.2"
 
 # Automatic indentation
-"guess-indent.nvim" = "scm"
+"guess-indent.nvim" = {
+  version = "scm"
+  options = {}
+}
 
 # Best task runner
 "overseer.nvim" = "1.4.0"
@@ -67,23 +70,10 @@ tree-sitter-json = "0.0.3"
 git = "ActivityWatch/aw-watcher-vim"
 rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 
-# AI code completions
-[plugins.supermaven-nvim]
-git = "supermaven-inc/supermaven-nvim"
-rev = "d71257f431e190d9236d7f30da4c2d659389e91f"
-
 # Edit my dotfiles which are managed by chezmoi
 [plugins."chezmoi.vim"]
 git = "alker0/chezmoi.vim"
 rev = "10f2692791b5e512a2c1bb4dc560b42ca5bf71fd"
-
-[plugins."care.nvim"]
-git = "max397574/care.nvim"
-rev = "main"
-
-[plugins.care-lsp]
-git = "max397574/care-lsp"
-rev = "main"
 
 [treesitter]
 auto_install = true
@@ -98,12 +88,5 @@ lsp.items = [
   "nvim-lspconfig",
   "mason.nvim",
   "mason-lspconfig.nvim",
-  "care.nvim",
-  "care-lsp",
   "conform.nvim"
-]
-
-setup.items = [
- "supermaven-nvim",
- "guess-indent.nvim"
 ]
