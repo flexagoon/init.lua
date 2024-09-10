@@ -70,11 +70,6 @@ tree-sitter-json = "0.0.3"
 git = "ActivityWatch/aw-watcher-vim"
 rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 
-# Edit my dotfiles which are managed by chezmoi
-[plugins."chezmoi.vim"]
-git = "alker0/chezmoi.vim"
-rev = "10f2692791b5e512a2c1bb4dc560b42ca5bf71fd"
-
 [treesitter]
 auto_install = true
 auto_highlight = "all"
