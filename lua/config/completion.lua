@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {
       autotrigger = false,
       convert = function(item)
-        local kind = vim.lsp.protocol.CompletionItemKind[item.kind]
+        local kind = vim.lsp.protocol.CompletionItemKind[item.kind] or ""
         return {
           menu = "",
           kind_hlgroup = "CmpItemKind" .. kind,
