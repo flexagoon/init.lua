@@ -38,10 +38,7 @@ nvim-lspconfig = "0.1.8"
 "dressing.nvim" = "2.2.2"
 
 # Automatic indentation
-"guess-indent.nvim" = {
-  version = "scm"
-  options = {}
-}
+"guess-indent.nvim" = "scm"
 
 # Best task runner
 "overseer.nvim" = "1.4.0"
