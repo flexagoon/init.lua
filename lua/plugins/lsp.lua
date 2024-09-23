@@ -84,7 +84,7 @@ require("conform").setup({
     timeout_ms = 500,
     lsp_fallback = true,
     filter = function(client)
-      return client.name ~= "tsserver"
+      return client.name ~= "ts_ls"
     end,
   },
 })
