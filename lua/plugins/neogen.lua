@@ -1,4 +1,6 @@
-require("neogen").setup({
+local neogen = require("neogen")
+
+neogen.setup({
   snippet_engine = "nvim",
   languages = {
     python = {
@@ -9,3 +11,9 @@ require("neogen").setup({
     },
   },
 })
+
+vim.keymap.set("n",
+  "<leader>cg",
+  neogen.generate,
+  { silent = true, noremap = true }
+)
