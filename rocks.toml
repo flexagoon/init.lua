@@ -6,9 +6,6 @@
 "rocks-treesitter.nvim" = "1.1.3"
 "rocks-git.nvim" = "2.3.1"
 
-# Colorscheme
-"kanagawa.nvim" = "scm"
-
 # Find all the things
 "telescope.nvim" = "scm"
 
@@ -85,12 +82,16 @@ rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 git = "supermaven-inc/supermaven-nvim"
 rev = "40bde487fe31723cdd180843b182f70c6a991226"
 
+[plugins."oxocarbon.nvim"]
+git = "nyoom-engineering/oxocarbon.nvim"
+rev = "004777819ba294423b638a35a75c9f0c7be758ed"
+
 [treesitter]
 auto_install = true
 auto_highlight = "all"
 
 [config]
-colorscheme = "kanagawa"
+colorscheme = "oxocarbon"
 
 [bundles]
 
