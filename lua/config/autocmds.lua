@@ -24,3 +24,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     vim.bo.filetype = filetype
   end,
 })
+
+-- Highlight .env.* files as .env
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = ".env.*",
+  callback = function()
+    print("hi")
+    vim.bo.filetype = "sh"
+  end,
+})
