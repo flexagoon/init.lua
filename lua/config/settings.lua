@@ -39,3 +39,6 @@ vim.opt.linebreak = true
 
 -- Show preview for :s
 vim.opt.inccommand = "split"
+
+-- Disable spel chekign
+vim.opt.spell = false
