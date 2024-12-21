@@ -46,6 +46,36 @@ local function luals_config()
   })
 end
 
+local function tailwidcss_config()
+  lspconfig.tailwindcss.setup({
+    settings = {
+      tailwindCSS = {
+        includeLanguages = {
+          templ = "html",
+          heex = "html-eex",
+          eelixir = "html-eex",
+        },
+      },
+    },
+  })
+end
+
+local function markdown_oxide_config()
+  lspconfig.markdown_oxide.setup({
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+        },
+      }
+    ),
+  })
+end
+
 -- Set up autocomplete
 
 require("config.completion")
@@ -72,10 +102,17 @@ require("mason-lspconfig").setup({
     pylsp = pylsp_config,
     gopls = gopls_config,
     lua_ls = luals_config,
+    tailwindcss = tailwidcss_config,
+    markdown_oxide = markdown_oxide_config,
   },
 })
 
-vim.filetype.add({ extension = { templ = "templ" } })
+vim.filetype.add({
+  extension = {
+    templ = "templ",
+    mdx = "mdx",
+  },
+})
 
 -- Set up formatting
 require("conform").setup({
