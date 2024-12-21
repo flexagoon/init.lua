@@ -81,6 +81,10 @@ tree-sitter-csv = "scm"
 git = "activitywatch/aw-watcher-vim"
 rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 
+[plugins.supermaven-nvim]
+git = "supermaven-inc/supermaven-nvim"
+rev = "40bde487fe31723cdd180843b182f70c6a991226"
+
 [treesitter]
 auto_install = true
 auto_highlight = "all"
@@ -95,4 +99,9 @@ lsp.items = [
   "mason.nvim",
   "mason-lspconfig.nvim",
   "conform.nvim"
+]
+
+setup.items = [
+  "guess-indent.nvim",
+  "supermaven-nvim"
 ]
