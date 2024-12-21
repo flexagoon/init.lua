@@ -5,7 +5,7 @@
   "workspace": {
     "checkThirdParty": false,
     "library": [
-        "$VIMRUNTIME",
+      "$VIMRUNTIME",
       "${3rd}/luv/library"
     ]
   }
