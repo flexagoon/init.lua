@@ -25,9 +25,6 @@ nvim-lspconfig = "1.1.0"
 "mason.nvim" = "1.10.0"
 "mason-lspconfig.nvim" = "1.31.0"
 
-## Formatting
-"conform.nvim" = "8.2.0"
-
 ## Better UI for LSP actions
 "dressing.nvim" = "3.1.0"
 
@@ -109,7 +106,6 @@ lsp.items = [
   "nvim-lspconfig",
   "mason.nvim",
   "mason-lspconfig.nvim",
-  "conform.nvim"
 ]
 
 setup.items = [

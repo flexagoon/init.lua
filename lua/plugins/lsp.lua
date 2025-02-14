@@ -82,6 +82,7 @@ require("config.completion")
 
 -- Set up LSP
 
+local lsp_formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local opts = { buffer = ev.buf }
@@ -90,6 +91,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
     vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+
+    vim.api.nvim_clear_autocmds({ group = lsp_formatting_group, buffer = ev.buf })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = "LspFormatting",
+      callback = function()
+        vim.lsp.buf.format({
+          async = true,
+          filter = function(client)
+            return client.name ~= "ts_ls"
+          end,
+        })
+      end,
+    })
   end,
 })
 
@@ -111,17 +125,5 @@ vim.filetype.add({
   extension = {
     templ = "templ",
     mdx = "mdx",
-  },
-})
-
--- Set up formatting
-require("conform").setup({
-  notify_on_error = false,
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_fallback = true,
-    filter = function(client)
-      return client.name ~= "ts_ls"
-    end,
   },
 })
