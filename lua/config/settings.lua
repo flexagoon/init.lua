@@ -42,3 +42,6 @@ vim.opt.inccommand = "split"
 
 -- Disable spel chekign
 vim.opt.spell = false
+
+-- Show healthchecks in a floating window
+vim.g.health = { style = "float" }
