@@ -86,13 +86,13 @@ tree-sitter-yaml = "0.0.31"
 git = "activitywatch/aw-watcher-vim"
 rev = "4ba86d05a940574000c33f280fd7f6eccc284331"
 
-[plugins.supermaven-nvim]
-git = "supermaven-inc/supermaven-nvim"
-rev = "07d20fce48a5629686aefb0a7cd4b25e33947d50"
-
 [plugins."oxocarbon.nvim"]
 git = "nyoom-engineering/oxocarbon.nvim"
 rev = "004777819ba294423b638a35a75c9f0c7be758ed"
+
+[plugins.neocodeium]
+git = "monkoose/neocodeium"
+rev = "v1.12.2"
 
 [treesitter]
 auto_install = true
@@ -113,5 +113,4 @@ lsp.items = [
 
 setup.items = [
   "guess-indent.nvim",
-  "supermaven-nvim"
 ]
