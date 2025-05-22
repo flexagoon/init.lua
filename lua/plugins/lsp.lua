@@ -1,80 +1,79 @@
-local lspconfig = require("lspconfig")
+require("mason").setup()
 
-local function pylsp_config()
-  lspconfig.pylsp.setup({
-    settings = {
-      pylsp = {
-        plugins = {
-          pylsp_mypy = {
-            enabled = true,
-            strict = true,
-            overrides = {
-              "--python-executable", "python",
-              "--disable-error-code", "name-defined",
-              true,
-            },
+-- Server configurations
+
+vim.lsp.config("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { enabled = false },
+        yapf = { enabled = false },
+        autopep8 = { enabled = false },
+        pyflakes = { enabled = false },
+        mccabe = { enabled = false },
+
+        pylsp_mypy = {
+          enabled = true,
+          strict = true,
+          overrides = {
+            "--python-executable", "python",
+            "--disable-error-code", "name-defined",
+            "--enable-incomplete-feature", "NewGenericSyntax",
+            true,
           },
-          ruff = {
-            enabled = true,
-            select = { "ALL" },
-            ignore = { "S311", "CPY", "E501", "FA", "TD002", "TD003" },
-            preview = true,
-          },
+        },
+
+        ruff = {
+          enabled = true,
+          select = { "ALL" },
+          ignore = { "S311", "CPY", "E501", "FA", "TD002", "TD003" },
+          preview = true,
         },
       },
     },
-  })
-end
+  },
+})
 
-local function gopls_config()
-  lspconfig.gopls.setup({
-    settings = {
-      gopls = {
-        staticcheck = true,
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      staticcheck = true,
+    },
+  },
+})
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      completion = { callSnippet = "Replace" },
+    },
+  },
+})
+
+vim.lsp.config("tailwindcss", {
+  settings = {
+    tailwindCSS = {
+      includeLanguages = {
+        templ = "html",
+        heex = "html-eex",
+        eelixir = "html-eex",
       },
     },
-  })
-end
+  },
+})
 
-local function luals_config()
-  lspconfig.lua_ls.setup({
-    settings = {
-      Lua = {
-        completion = { callSnippet = "Replace" },
-      },
-    },
-  })
-end
-
-local function tailwidcss_config()
-  lspconfig.tailwindcss.setup({
-    settings = {
-      tailwindCSS = {
-        includeLanguages = {
-          templ = "html",
-          heex = "html-eex",
-          eelixir = "html-eex",
-        },
-      },
-    },
-  })
-end
-
-local function markdown_oxide_config()
-  lspconfig.markdown_oxide.setup({
-    capabilities = vim.tbl_deep_extend(
-      "force",
-      vim.lsp.protocol.make_client_capabilities(),
+vim.lsp.config("ts_ls", {
+  init_options = {
+    plugins = {
       {
-        workspace = {
-          didChangeWatchedFiles = {
-            dynamicRegistration = true,
-          },
-        },
-      }
-    ),
-  })
-end
+        name = "@vue/typescript-plugin",
+        location = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server"),
+        languages = { "vue" },
+      },
+    },
+  },
+  filetypes = { "typescript", "javascript", "vue" },
+})
 
 -- Set up autocomplete
 
@@ -95,11 +94,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.api.nvim_clear_autocmds({ group = lsp_formatting_group, buffer = ev.buf })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = "LspFormatting",
+      buffer = ev.buf,
       callback = function()
         vim.lsp.buf.format({
           async = true,
           filter = function(client)
-            return client.name ~= "ts_ls"
+            return client.name ~= "ts_ls" and client.name ~= "volar"
           end,
         })
       end,
@@ -107,23 +107,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-  handlers = {
-    function(server)
-      lspconfig[server].setup({})
-    end,
-    pylsp = pylsp_config,
-    gopls = gopls_config,
-    lua_ls = luals_config,
-    tailwindcss = tailwidcss_config,
-    markdown_oxide = markdown_oxide_config,
-  },
-})
+local mason_regisry = require("mason-registry")
+for _, pkg in ipairs(mason_regisry.get_installed_packages()) do
+  local lspconfig_name = vim.tbl_get(pkg, "spec", "neovim", "lspconfig")
+  if lspconfig_name then
+    vim.lsp.enable(lspconfig_name)
+  end
+end
 
 vim.filetype.add({
   extension = {
-    templ = "templ",
     mdx = "mdx",
   },
 })

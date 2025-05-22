@@ -21,9 +21,8 @@ neogit = "2.0.0"
 # LSP
  
 ## Language server management
-nvim-lspconfig = "1.6.0"
-"mason.nvim" = "1.10.0"
-"mason-lspconfig.nvim" = "1.31.0"
+nvim-lspconfig = "2.1.0"
+"mason.nvim" = "2.0.0"
 
 ## Better UI for LSP actions
 "dressing.nvim" = "3.1.1"
@@ -110,7 +109,6 @@ colorscheme = "oxocarbon"
 lsp.items = [
   "nvim-lspconfig",
   "mason.nvim",
-  "mason-lspconfig.nvim",
 ]
 
 setup.items = [
