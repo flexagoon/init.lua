@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("InsertCharPre", {
       completion_timer:start(
         COMPLETION_DELAY_MS,
         0,
-        vim.schedule_wrap(vim.lsp.completion.trigger)
+        vim.schedule_wrap(vim.lsp.completion.get)
       )
     end
   end,
@@ -59,7 +59,7 @@ vim.keymap.set("i", "<C-n>", function()
   if vim.fn.pumvisible() ~= 0 then
     vim.api.nvim_feedkeys("", "n", true)
   else
-    vim.lsp.completion.trigger()
+    vim.lsp.completion.get()
   end
 end)
 
