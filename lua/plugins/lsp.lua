@@ -75,6 +75,20 @@ vim.lsp.config("ts_ls", {
   filetypes = { "typescript", "javascript", "vue" },
 })
 
+
+vim.lsp.config("clangd", {
+  cmd = {
+    vim.fs.find("clangd", { path = vim.env.IDF_TOOLS_PATH })[1],
+    "--compile-commands-dir=build",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--completion-style=detailed",
+    "--fallback-style=llvm",
+  },
+  root_markers = { "sdkconfig", ".git" },
+})
+
 -- Set up autocomplete
 
 require("config.completion")
