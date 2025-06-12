@@ -1,4 +1,4 @@
-vim.opt.completeopt = { "menuone", "noinsert", "popup", "fuzzy" }
+vim.o.completeopt = "menuone,noinsert,popup,fuzzy"
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)

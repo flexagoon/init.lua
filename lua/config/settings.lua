@@ -1,47 +1,47 @@
 -- Enable hybrid line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Always enable the sign column
-vim.opt.signcolumn = "yes"
+vim.o.signcolumn = "yes"
 
 -- Better searching
-vim.opt.hlsearch = false
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.hlsearch = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Preserve undo history
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Set a soft 80 character line limit
-vim.opt.colorcolumn = "80"
+vim.o.colorcolumn = "80"
 
 -- Open new splits below and right instead of above and left
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Keep some space above and below the cursor
-vim.opt.scrolloff = 10
+vim.o.scrolloff = 10
 
 -- Display tabs as 4 spaces
-vim.opt.tabstop = 4
+vim.o.tabstop = 4
 
 -- Hide markup syntax
-vim.opt.conceallevel = 2
+vim.o.conceallevel = 2
 
 -- Disable swap files since they are basically useless
 -- and very annoying
-vim.opt.swapfile = false
+vim.o.swapfile = false
 
 -- Better line wrapping
-vim.opt.breakindent = true
-vim.opt.linebreak = true
+vim.o.breakindent = true
+vim.o.linebreak = true
 
 -- Show preview for :s
-vim.opt.inccommand = "split"
+vim.o.inccommand = "split"
 
 -- Disable spel chekign
-vim.opt.spell = false
+vim.o.spell = false
 
 -- Show healthchecks in a floating window
 vim.g.health = { style = "float" }
