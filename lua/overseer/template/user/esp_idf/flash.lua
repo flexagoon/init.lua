@@ -5,7 +5,7 @@ return {
       cmd = { "idf.py" },
       args = { "flash" },
       cwd = vim.lsp.buf.list_workspace_folders()[1],
-      components = { { "open_output", focus = true }, "default" },
+      components = { { "open_output", focus = true }, { "run_after", task_names = { "user.esp_idf.monitor" } }, "default" },
     }
   end,
   condition = {
