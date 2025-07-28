@@ -75,7 +75,6 @@ vim.lsp.config("ts_ls", {
   filetypes = { "typescript", "javascript", "vue" },
 })
 
-
 vim.lsp.config("clangd", {
   cmd = {
     vim.fs.find("clangd", { path = vim.env.IDF_TOOLS_PATH })[1],
@@ -83,7 +82,6 @@ vim.lsp.config("clangd", {
     "--background-index",
     "--clang-tidy",
     "--header-insertion=never",
-    "--completion-style=detailed",
     "--fallback-style=llvm",
   },
   root_markers = { "sdkconfig", ".git" },
@@ -103,7 +101,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
     vim.api.nvim_clear_autocmds({ group = lsp_formatting_group, buffer = ev.buf })
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -113,7 +110,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.buf.format({
           async = true,
           filter = function(client)
-            return client.name ~= "ts_ls" and client.name ~= "volar"
+            return client.name ~= "ts_ls" and client.name ~= "vue_ls"
           end,
         })
       end,
