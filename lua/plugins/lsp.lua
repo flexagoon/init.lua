@@ -118,13 +118,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local mason_regisry = require("mason-registry")
-for _, pkg in ipairs(mason_regisry.get_installed_packages()) do
-  local lspconfig_name = vim.tbl_get(pkg, "spec", "neovim", "lspconfig")
-  if lspconfig_name then
-    vim.lsp.enable(lspconfig_name)
-  end
-end
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.iter(require("mason-registry").get_installed_packages())
+        :map(function(pkg) return vim.tbl_get(pkg, "spec", "neovim", "lspconfig") end)
+        :each(vim.lsp.enable)
+  end,
+})
 
 vim.filetype.add({
   extension = {
