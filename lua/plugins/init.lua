@@ -1,14 +1,4 @@
 vim.pack.add({
-  -- Generate docstrings
-  "https://github.com/danymat/neogen",
-
-  -- Various utility mini-plugins
-  "https://github.com/echasnovski/mini.nvim",
-
-  -- The best git UI
-  "https://github.com/NeogitOrg/neogit",
-  "https://github.com/nvim-lua/plenary.nvim", -- Dependency
-
   -- Language server management
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/mason-org/mason.nvim",
@@ -19,11 +9,20 @@ vim.pack.add({
     version = "main",
   },
 
-  -- Automatic indentation
-  "https://github.com/NMAC427/guess-indent.nvim",
+  -- Various utility mini-plugins
+  "https://github.com/echasnovski/mini.nvim",
+
+  -- The best git UI
+  "https://github.com/NeogitOrg/neogit",
 
   -- Best task runner
   "https://github.com/stevearc/overseer.nvim",
+
+  -- Automatic indentation
+  "https://github.com/NMAC427/guess-indent.nvim",
+
+  -- Generate docstrings
+  "https://github.com/danymat/neogen",
 
   -- Track my activity with ActivityWatch
   "https://github.com/ActivityWatch/aw-watcher-vim",
@@ -37,6 +36,9 @@ vim.pack.add({
     src = "https://github.com/catppuccin/nvim",
     name = "catppuccin",
   },
+
+  -------------------------------------------
+  "https://github.com/nvim-lua/plenary.nvim",
 })
 
 -- Load all plugin configs
