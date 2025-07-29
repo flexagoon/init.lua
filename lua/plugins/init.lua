@@ -1,7 +1,4 @@
 vim.pack.add({
-  -- Find all the things
-  "https://github.com/nvim-telescope/telescope.nvim",
-
   -- Generate docstrings
   "https://github.com/danymat/neogen",
 
@@ -10,6 +7,7 @@ vim.pack.add({
 
   -- The best git UI
   "https://github.com/NeogitOrg/neogit",
+  "https://github.com/nvim-lua/plenary.nvim", -- Dependency
 
   -- Language server management
   "https://github.com/neovim/nvim-lspconfig",
@@ -39,8 +37,6 @@ vim.pack.add({
     src = "https://github.com/catppuccin/nvim",
     name = "catppuccin",
   },
-  ------
-  "https://github.com/nvim-lua/plenary.nvim",
 })
 
 -- Load all plugin configs
