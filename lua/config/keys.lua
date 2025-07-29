@@ -5,8 +5,18 @@ vim.g.maplocalleader = vim.g.mapleader
 -- Doom Emacs-like bindings for saving and exiting
 vim.keymap.set("n", "<leader>s", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>wq", "ZZ")
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>Q", "ZQ")
+vim.keymap.set("n", "<leader>q", function()
+  -- If qflist is open, close it before the actual window
+  local qflist_open = vim.iter(vim.fn.getwininfo())
+      :any(function(wininf) return wininf.quickfix == 1 end)
+
+  if qflist_open then
+    vim.cmd.cclose()
+  else
+    vim.cmd.q()
+  end
+end)
 
 -- Switch to alternative buffer
 vim.keymap.set("n", "<leader>`", "<cmd>b#<CR>")
