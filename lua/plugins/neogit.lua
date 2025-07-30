@@ -7,7 +7,7 @@ require("neogit").setup({
     },
   },
   integrations = {
-    telescope = true,
+    mini_pick = true,
   },
 })
 
