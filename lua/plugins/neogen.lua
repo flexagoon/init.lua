@@ -1,3 +1,6 @@
+--- Generate docstrings
+vim.pack.add({ "https://github.com/danymat/neogen" })
+
 local neogen = require("neogen")
 
 neogen.setup({

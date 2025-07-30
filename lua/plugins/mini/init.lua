@@ -1,3 +1,7 @@
+--- Various utility mini-plugins
+
+vim.pack.add({ "https://github.com/echasnovski/mini.nvim" })
+
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
 require("mini.surround").setup()

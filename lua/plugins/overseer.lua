@@ -1,3 +1,6 @@
+--- Best task runner
+vim.pack.add({ "https://github.com/stevearc/overseer.nvim" })
+
 require("overseer").setup({
   templates = { "builtin", "user.esp_idf" },
   task_list = { min_height = 15 },

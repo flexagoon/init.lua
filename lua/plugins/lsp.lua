@@ -1,3 +1,8 @@
+vim.pack.add({
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+})
+
 require("mason").setup()
 
 -- Load server configurations
