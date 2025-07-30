@@ -1,91 +1,13 @@
 require("mason").setup()
 
--- Server configurations
+-- Load server configurations
 
-vim.lsp.config("pylsp", {
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = { enabled = false },
-        yapf = { enabled = false },
-        autopep8 = { enabled = false },
-        pyflakes = { enabled = false },
-        mccabe = { enabled = false },
+local config_path = vim.fn.stdpath("config")
+for cfg in vim.fs.dir(config_path .. "/lua/lsp") do
+  local name = cfg:gsub(".lua", "")
+  vim.lsp.config(name, require("lsp." .. name))
+end
 
-        pylsp_mypy = {
-          enabled = true,
-          strict = true,
-          overrides = {
-            "--python-executable", "python",
-            "--disable-error-code", "name-defined",
-            "--enable-incomplete-feature", "NewGenericSyntax",
-            true,
-          },
-        },
-
-        ruff = {
-          enabled = true,
-          select = { "ALL" },
-          ignore = { "S311", "CPY", "E501", "FA", "TD002", "TD003" },
-          preview = true,
-        },
-      },
-    },
-  },
-})
-
-vim.lsp.config("gopls", {
-  settings = {
-    gopls = {
-      staticcheck = true,
-    },
-  },
-})
-
-vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      completion = { callSnippet = "Replace" },
-    },
-  },
-})
-
-vim.lsp.config("tailwindcss", {
-  settings = {
-    tailwindCSS = {
-      includeLanguages = {
-        templ = "html",
-        heex = "html-eex",
-        eelixir = "html-eex",
-      },
-    },
-  },
-})
-
-vim.lsp.config("ts_ls", {
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server"),
-        languages = { "vue" },
-      },
-    },
-  },
-  filetypes = { "typescript", "javascript", "vue" },
-})
-
-vim.lsp.config("clangd", {
-  cmd = {
-    vim.fs.find("clangd", { path = vim.env.IDF_TOOLS_PATH })[1],
-    "--compile-commands-dir=build",
-    "--background-index",
-    "--clang-tidy",
-    "--header-insertion=never",
-    "--fallback-style=llvm",
-  },
-  root_markers = { "sdkconfig", ".git" },
-})
 
 -- Set up autocomplete
 
@@ -110,7 +32,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.buf.format({
           async = true,
           filter = function(client)
-            return client.name ~= "ts_ls" and client.name ~= "vue_ls"
+            return client.name ~= "vtsls" and client.name ~= "vue_ls"
           end,
         })
       end,
