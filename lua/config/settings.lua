@@ -13,9 +13,6 @@ vim.o.smartcase = true
 -- Preserve undo history
 vim.o.undofile = true
 
--- Set a soft 80 character line limit
-vim.o.colorcolumn = "80"
-
 -- Open new splits below and right instead of above and left
 vim.o.splitbelow = true
 vim.o.splitright = true
