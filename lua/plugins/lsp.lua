@@ -20,6 +20,12 @@ require("config.completion")
 
 -- Set up LSP
 
+local ignored_formatters = {
+  "vtsls",
+  "vue_ls",
+  "svelte",
+}
+
 local lsp_formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
@@ -37,7 +43,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.buf.format({
           async = true,
           filter = function(client)
-            return client.name ~= "vtsls" and client.name ~= "vue_ls"
+            return not vim.tbl_contains(ignored_formatters, client.name)
           end,
         })
       end,
