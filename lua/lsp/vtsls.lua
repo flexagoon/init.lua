@@ -11,5 +11,5 @@ return {
       },
     },
   },
-  filetypes = { "typescript", "javascript", "vue" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
 }
