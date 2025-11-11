@@ -18,13 +18,6 @@ return {
             true,
           },
         },
-
-        ruff = {
-          enabled = true,
-          select = { "ALL" },
-          ignore = { "S311", "CPY", "E501", "FA", "TD002", "TD003" },
-          preview = true,
-        },
       },
     },
   },
