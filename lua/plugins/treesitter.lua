@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 
     ts.install({ lang }):await(function()
-      vim.treesitter.start()
+      vim.treesitter.start(args.buf, lang)
     end)
   end,
 })
