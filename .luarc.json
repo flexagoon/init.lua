@@ -3,7 +3,7 @@
     "version": "LuaJIT"
   },
   "workspace": {
-    "checkThirdParty": false,
+   "checkThirdParty": false,
     "library": [
       "$VIMRUNTIME",
       "${3rd}/luv/library"
