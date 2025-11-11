@@ -20,13 +20,15 @@ require("codecompanion").setup({
     },
   },
   adapters = {
-    gemini = function()
-      return require("codecompanion.adapters").extend("gemini", {
-        env = {
-          api_key = "cmd:rbw get Google -f \"Gemini API\"",
-        },
-      })
-    end,
+    http = {
+      gemini = function()
+        return require("codecompanion.adapters").extend("gemini", {
+          env = {
+            api_key = "cmd:rbw get Google -f \"Gemini API\"",
+          },
+        })
+      end,
+    },
   },
 })
 
